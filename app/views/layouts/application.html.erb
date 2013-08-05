@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html manifest="/offline.appcache"> 
+  <head>
+  	<title>Offline Web App</title>    
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>      
+  </head>
+<body >
+
+<header class="headerPrincipal">
+    <div class="limite">
+        <h1 class="serviceName"><a href="/">Offline Web App</a></h1>
+    </div>
+      <menu id="menuPrincipal">        
+	<ul>
+            <li><%= menu_tag('Home', root_url())%></li>
+            <li><%= menu_tag('Contacts', new_contact_path())%></li>
+            <li class="btMenu"><a href="#" onclick="checkOnlineStatus()" id="network_status">Network status</a></li>             
+            <li class="btMenu" style='margin-right: 5px;'><a href="#" onclick="checkCacheStatus()" id="cache_status">Cache status</a></li> 
+        </ul>
+    </menu>
+</header>
+<div class="container">
+  	<%= yield %>
+</div>
+  </body>
+</html>

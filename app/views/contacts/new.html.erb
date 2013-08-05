@@ -1,0 +1,60 @@
+<article class="span8">
+    <br>
+<h1>New Contact</h1>
+<%= form_for @contact do |f| %>
+<hr>
+    <div class="sideBySide">
+        <div class="control-group input-prepend">
+            <label>Name </label>
+            <span class="add-on">@</span>
+            <%= f.text_field :name , :class=>'span2', :placeholder=>'Name'%>
+        </div>
+        <div class="control-group input-prepend">
+            <label>E-mail </label>
+            <span class="add-on"><i class="icon-envelope"></i></span>
+            <%= f.text_field :email , :class=>'span2', :placeholder=>'Your e-mail'%>
+        </div>
+    </div>
+    <div class="control-group">
+        <label>Address</label>
+        <%= f.text_field :address , :class=>'input240'%>
+    </div>
+    <hr>
+
+    <button class="btn btn-primary icoPosRight btn-large" id="submit" tabindex="4">Save</button>
+<% end %>		
+</article>
+<div class="span7">
+    <br>
+    <h1>Contacts</h1>
+    <hr>
+    <table class="tableList">
+        <thead>
+            <tr>
+                <th><a href="#">Name</a></th>
+                <th><a href="#">Email</a></th>
+                <th><a href="#">Address</a></th>
+            </tr>
+        </thead>
+        <tbody id="contact_details">
+            <tr >
+                <td class="span3" colspan="3">Loading</td>           
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<!--====== Template ======-->
+<script id="contactTmpl" type="text/x-jsrender">
+    <tr >
+        <td class="txtLeft span3">{{>name}}</td>           
+        <td class="txtLeft span3">{{>email}}</td>
+        <td class="txtLeft span3">{{>address}}</td>
+    </tr>    
+</script>
+<script type="text/javascript">
+$(function(){
+    loadOfflineContact();    
+    renderContacts();
+  });
+</script>
