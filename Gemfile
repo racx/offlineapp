@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rake', '10.0.4'
 gem 'jquery-rails'
 gem 'rack-offline'
 gem 'inherited_resources'
